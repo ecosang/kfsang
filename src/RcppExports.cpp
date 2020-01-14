@@ -6,6 +6,58 @@
 
 using namespace Rcpp;
 
+// kf_cpp
+List kf_cpp(const arma::mat& A, const arma::mat& B, const arma::mat& C, const arma::mat& D, const arma::mat& Q, const arma::mat& R, const arma::mat& mu0, const arma::mat& P0, const arma::mat& u_mat, const arma::mat& y_mat);
+RcppExport SEXP _kfsang_kf_cpp(SEXP ASEXP, SEXP BSEXP, SEXP CSEXP, SEXP DSEXP, SEXP QSEXP, SEXP RSEXP, SEXP mu0SEXP, SEXP P0SEXP, SEXP u_matSEXP, SEXP y_matSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::mat& >::type A(ASEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type B(BSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type D(DSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type Q(QSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type R(RSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type mu0(mu0SEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type P0(P0SEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type u_mat(u_matSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type y_mat(y_matSEXP);
+    rcpp_result_gen = Rcpp::wrap(kf_cpp(A, B, C, D, Q, R, mu0, P0, u_mat, y_mat));
+    return rcpp_result_gen;
+END_RCPP
+}
+// nstep_cpp
+List nstep_cpp(const arma::mat& A, const arma::mat& B, const arma::mat& C, const arma::mat& D, const arma::mat& x0, const arma::mat& u_mat);
+RcppExport SEXP _kfsang_nstep_cpp(SEXP ASEXP, SEXP BSEXP, SEXP CSEXP, SEXP DSEXP, SEXP x0SEXP, SEXP u_matSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::mat& >::type A(ASEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type B(BSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type D(DSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type x0(x0SEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type u_mat(u_matSEXP);
+    rcpp_result_gen = Rcpp::wrap(nstep_cpp(A, B, C, D, x0, u_mat));
+    return rcpp_result_gen;
+END_RCPP
+}
+// onestep_cpp
+List onestep_cpp(const arma::mat& A, const arma::mat& B, const arma::mat& C, const arma::mat& D, const arma::mat& x, const arma::mat& u);
+RcppExport SEXP _kfsang_onestep_cpp(SEXP ASEXP, SEXP BSEXP, SEXP CSEXP, SEXP DSEXP, SEXP xSEXP, SEXP uSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::mat& >::type A(ASEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type B(BSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type D(DSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type u(uSEXP);
+    rcpp_result_gen = Rcpp::wrap(onestep_cpp(A, B, C, D, x, u));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpparma_hello_world
 arma::mat rcpparma_hello_world();
 RcppExport SEXP _kfsang_rcpparma_hello_world() {
@@ -49,12 +101,60 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// update_system_cpp
+List update_system_cpp(const arma::vec& par, const arma::vec& dims, int& dt);
+RcppExport SEXP _kfsang_update_system_cpp(SEXP parSEXP, SEXP dimsSEXP, SEXP dtSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type par(parSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type dims(dimsSEXP);
+    Rcpp::traits::input_parameter< int& >::type dt(dtSEXP);
+    rcpp_result_gen = Rcpp::wrap(update_system_cpp(par, dims, dt));
+    return rcpp_result_gen;
+END_RCPP
+}
+// update_system_lw_cpp
+List update_system_lw_cpp(const arma::vec& x0, const arma::vec& par, const arma::vec& dims, int& dt);
+RcppExport SEXP _kfsang_update_system_lw_cpp(SEXP x0SEXP, SEXP parSEXP, SEXP dimsSEXP, SEXP dtSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type x0(x0SEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type par(parSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type dims(dimsSEXP);
+    Rcpp::traits::input_parameter< int& >::type dt(dtSEXP);
+    rcpp_result_gen = Rcpp::wrap(update_system_lw_cpp(x0, par, dims, dt));
+    return rcpp_result_gen;
+END_RCPP
+}
+// update_system_lw_onestep_cpp
+List update_system_lw_onestep_cpp(const arma::vec& par, const arma::vec& dims, int& dt, const arma::mat& x, const arma::mat& u);
+RcppExport SEXP _kfsang_update_system_lw_onestep_cpp(SEXP parSEXP, SEXP dimsSEXP, SEXP dtSEXP, SEXP xSEXP, SEXP uSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type par(parSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type dims(dimsSEXP);
+    Rcpp::traits::input_parameter< int& >::type dt(dtSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type u(uSEXP);
+    rcpp_result_gen = Rcpp::wrap(update_system_lw_onestep_cpp(par, dims, dt, x, u));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_kfsang_kf_cpp", (DL_FUNC) &_kfsang_kf_cpp, 10},
+    {"_kfsang_nstep_cpp", (DL_FUNC) &_kfsang_nstep_cpp, 6},
+    {"_kfsang_onestep_cpp", (DL_FUNC) &_kfsang_onestep_cpp, 6},
     {"_kfsang_rcpparma_hello_world", (DL_FUNC) &_kfsang_rcpparma_hello_world, 0},
     {"_kfsang_rcpparma_outerproduct", (DL_FUNC) &_kfsang_rcpparma_outerproduct, 1},
     {"_kfsang_rcpparma_innerproduct", (DL_FUNC) &_kfsang_rcpparma_innerproduct, 1},
     {"_kfsang_rcpparma_bothproducts", (DL_FUNC) &_kfsang_rcpparma_bothproducts, 1},
+    {"_kfsang_update_system_cpp", (DL_FUNC) &_kfsang_update_system_cpp, 3},
+    {"_kfsang_update_system_lw_cpp", (DL_FUNC) &_kfsang_update_system_lw_cpp, 4},
+    {"_kfsang_update_system_lw_onestep_cpp", (DL_FUNC) &_kfsang_update_system_lw_onestep_cpp, 5},
     {NULL, NULL, 0}
 };
 
